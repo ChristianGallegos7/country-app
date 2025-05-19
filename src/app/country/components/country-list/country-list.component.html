@@ -1,7 +1,5 @@
 <section class="mt-5">
-  <div
-    class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100"
-  >
+  <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
     <table class="table">
       <!-- head -->
       <thead>
@@ -16,15 +14,23 @@
         </tr>
       </thead>
       <tbody>
-        <!-- row 1 -->
+        @for (country of countries(); track country.cca2; let index = $index) {
+
         <tr>
-          <th>1</th>
-          <td>Icono</td>
-          <td>Bandera</td>
-          <td>Ecuador</td>
-          <td>Quito</td>
-          <td>150000000</td>
+          <td> {{index +1}} </td>
+          <td>{{country.flag}}</td>
+          <td>
+            <img [src]="country.flagSvg" [alt]="country.name" class="w-14 h-10">
+          </td>
+          <td> {{country.name}} </td>
+          <td> {{country.capital}} </td>
+          <td> {{country.population}} </td>
+          <td>
+            <a class="link-primary cursor-pointer">Más información</a>
+          </td>
         </tr>
+        }
+
       </tbody>
     </table>
   </div>
